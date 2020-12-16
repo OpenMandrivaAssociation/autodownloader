@@ -7,7 +7,7 @@ Summary:        GUI-tool to automate the download of certain files
 License:        GPLv2+
 Group:          Networking/File transfer 
 URL:            https://github.com/frenzymadness/AutoDownloader
-Source0:        https://github.com/frenzymadness/AutoDownloader/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/frenzymadness/AutoDownloader/archive/v%{version}/%{oname}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  pkgconfig(python)
 
@@ -39,7 +39,7 @@ are not permitted to be (re)distributed unlike most files in Fedora.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q
+%setup -q -n %{oname}-%{version}
 
 %build
 # nothing to build pure python code only

@@ -32,7 +32,9 @@ Notice that Autodownloader while open source itself, may download files which
 are not permitted to be (re)distributed unlike most files in Fedora.
 
 %files
-%doc COPYING ChangeLog GladeWindow-license.txt README.txt TODO example.autodlrc
+%license COPYING
+%doc ChangeLog README.txt examples/example.autodlrc
+%{_bindir}/autodl
 %{_datadir}/autodl
 %{_datadir}/icons/hicolor/*/apps/autodl.png
 

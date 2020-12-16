@@ -1,13 +1,20 @@
+%define oname   AutoDownloader
+
 Name:           autodownloader
-Version:        0.3.0
+Version:        0.5.0
 Release:        1
 Summary:        GUI-tool to automate the download of certain files
 License:        GPLv2+
 Group:          Networking/File transfer 
-URL:            http://sourceforge.net/projects/autodownloader
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+URL:            https://github.com/frenzymadness/AutoDownloader
+Source0:        https://github.com/frenzymadness/AutoDownloader/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildArch:      noarch
-Requires:       pygtk2.0-libglade hicolor-icon-theme
+BuildRequires:  pkgconfig(python)
+
+Requires:       hicolor-icon-theme
+Requires:       python3dist(pygobject)
+Requires:       python3dist(six)
+Requires:       gtk+3.0
 
 %description
 Some software (usually games) requires certain data files to operate, sometimes
@@ -33,11 +40,9 @@ are not permitted to be (re)distributed unlike most files in Fedora.
 
 %prep
 %setup -q
-# python3
-find . -name "*.py" -exec 2to3 -w {} \;
 
 %build
 # nothing to build pure python code only
 
 %install
-%makeinstall_std
+%make_install
